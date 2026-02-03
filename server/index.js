@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const roomRoutes = require("./routes/roomRoutes");
-
+const port = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
 
@@ -33,4 +33,4 @@ const server = http.createServer(app);
 initSocket(server);
 
 // ❌ app.listen → ✅ server.listen
-server.listen(4000, () => console.log("Server running on 4000"));
+server.listen(port, () => console.log(`Server running on ${port}`));
